@@ -1,8 +1,9 @@
-import React from "react"
+import React, { useEffect, useState } from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import { breakpoints } from "../theme/breakpoints"
 import Logo from "../images/Logo.svg"
 import BackgroundImage from 'gatsby-background-image'
+import { motion } from "framer-motion"
 import styled from "styled-components"
 const StyledBackgroundImage = styled(BackgroundImage)`
   overflow: hidden;
@@ -35,6 +36,8 @@ const StyledBackgroundImage = styled(BackgroundImage)`
 `
 
 const Hero = () => {
+  const [Background, setBackground] = useState(true);
+
   const data = useStaticQuery(graphql`
     query {
       header_bg_1: file(relativePath: { eq: "header_bg_1.jpg" }) {
@@ -53,14 +56,24 @@ const Hero = () => {
       }
     }
   `)
+  useEffect(() => {
+    // setBackground(!Background);
+  }, [])
+
   return (
     <>
       <StyledBackgroundImage
         Tag="section"
-        fluid={data.header_bg_2.childImageSharp.fluid}
+        fluid={Background ? data.header_bg_2.childImageSharp.fluid : data.header_bg_1.childImageSharp.fluid}
       >
-        <img src={Logo} alt="logo" />
-        <h1>HAVE A GOOD TIME</h1>
+        <motion.img src={Logo} alt="logo"
+          initial={{ position: 'relative', top: -250, opacity: 0 }}
+          animate={{ top: -10, opacity: 1 }} />
+        <motion.h1
+          initial={{ position: 'relative', top: -250, opacity: 0 }}
+          animate={{ top: -10, opacity: 1 }}
+          transition={{ delay: 1 }}
+        >HAVE A GOOD TIME</motion.h1>
       </StyledBackgroundImage>
     </>
   )

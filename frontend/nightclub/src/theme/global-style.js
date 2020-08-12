@@ -106,7 +106,7 @@ export const GlobalStyle = createGlobalStyle`
   body {
     line-height: ${({ theme }) => theme.lineHeight.relaxed};
     letter-spacing: ${({ theme }) => theme.letterSpacing.wide};
-    background-color: ${({ theme }) => theme.colour.white};
+    background-color: var(--theme-black);
   }
   img {
     display: block;

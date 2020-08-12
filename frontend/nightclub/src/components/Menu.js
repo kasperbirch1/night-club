@@ -63,7 +63,7 @@ const Menu = () => {
                 <FaBars onClick={() => setMenuToggle(!MenuToggle)} />
             </StyledNav>
             {MenuToggle &&
-                <section>
+                <section style={{ color: 'white' }}>
                     <ul>
                         <MenuLinks />
                     </ul>
