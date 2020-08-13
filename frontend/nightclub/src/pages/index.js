@@ -5,6 +5,7 @@ import Welcome from "../components/Welcome"
 import Events from "../components/Events"
 import Gallery from "../components/Gallery"
 import Testimonials from "../components/Testimonials"
+import Email from "../components/Email"
 
 const IndexPage = () => (
   <>
@@ -15,6 +16,10 @@ const IndexPage = () => (
     </Wrapper>
     <Gallery />
     <Testimonials />
+    <Wrapper>
+      <Email />
+    </Wrapper>
+
   </>
 )
 
