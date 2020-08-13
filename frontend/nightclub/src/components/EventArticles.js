@@ -8,7 +8,6 @@ const EventArticles = ({ posts, loading }) => {
 
     return (
         <>
-            {console.log("posts", posts)}
             {
                 posts.map(post => (
                     <li key={post.id} >

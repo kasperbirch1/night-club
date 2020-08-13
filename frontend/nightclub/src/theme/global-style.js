@@ -101,7 +101,7 @@ export const GlobalStyle = createGlobalStyle`
     scroll-behavior: smooth;
     font-family: ${({ theme }) => theme.font.sans};
     font-size: ${({ theme }) => theme.fontSize.lg};
-    color: ${({ theme }) => theme.colour.grey[900]};
+    color: ${({ theme }) => theme.colour.white};
   }
   body {
     line-height: ${({ theme }) => theme.lineHeight.relaxed};
@@ -110,6 +110,7 @@ export const GlobalStyle = createGlobalStyle`
   }
   img {
     display: block;
+    width: 100%;
   }
   a {
     text-decoration: none;
