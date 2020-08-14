@@ -41,13 +41,14 @@ const GalleryItems = ({ data, index }) => {
     }, []);
 
     return (
-        <StyledMotionImageDiv style={{ background: `url(${Img.url}) center/cover no-repeat`, height: '300px' }}
-            initial={{ opacity: 0, x: -100 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: (index / 2) }}
-        >
-
-        </StyledMotionImageDiv>
+        <>
+            <StyledMotionImageDiv style={{ background: `url(${Img.url}) center/cover no-repeat`, height: '300px' }}
+                initial={{ opacity: 0, x: -100 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: (index / 2) }}
+            >
+            </StyledMotionImageDiv>
+        </>
     )
 }
 

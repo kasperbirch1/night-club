@@ -6,10 +6,12 @@ import Events from "../components/Events"
 import Gallery from "../components/Gallery"
 import Testimonials from "../components/Testimonials"
 import Email from "../components/Email"
+import Lightbox from "../components/Lightbox"
 
 const IndexPage = () => (
   <>
     <SEO title="Home" />
+    <Lightbox />
     <Wrapper>
       <Welcome />
       <Events />
