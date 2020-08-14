@@ -9,6 +9,8 @@
 import PropTypes from "prop-types"
 import React from "react"
 import Header from "./header"
+import Footer from "./Footer"
+import { Wrapper } from "./page-elements/wrapper"
 
 const Layout = ({ children }) => {
   // const data = useStaticQuery(graphql`
@@ -25,6 +27,9 @@ const Layout = ({ children }) => {
     <>
       <Header />
       <main>{children}</main>
+      <Wrapper>
+        <Footer />
+      </Wrapper>
     </>
   )
 }

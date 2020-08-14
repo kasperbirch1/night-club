@@ -21,10 +21,18 @@ const StyledTestimonialItemArticle = styled.article`
     }
     .someContainer {
         margin: 1rem 0;
-      a {
-        border: 2px solid white;
-        padding: .5rem;
-        margin:0 1rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        a {
+            margin: 0 .5rem;
+            border: 2px solid white;
+            padding: .5rem;
+            display: grid;
+            place-content: center;
+            svg {
+                font-size: .75rem;
+            }
         :hover {
             color: var(--theme-pink);
             border-color: var(--theme-pink);

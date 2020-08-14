@@ -19,6 +19,7 @@ const StyledEmailSection = styled.section`
     }
     form {
         input[type=email] {
+            color: red;
             display: block;
             width: 100%;
             background-color: transparent;
@@ -51,45 +52,41 @@ const StyledEmailSection = styled.section`
 
 const Email = () => {
     const { register, handleSubmit, errors } = useForm();
-    var formData = new FormData();
-    formData.append("email", "kasper");
 
-    function onSubmit(event) {
-        // event.preventDefault();
-        //     axios({
-        //         method: 'post',
-        //         url: 'http://localhost:4000/newsletters',
-        //         headers: {
-        //             'Content-Type': 'application/x-www-form-urlencoded'
-        //         },
-        //         data: formData
-        //     }).then(res => {
-        //         console.log(res);
-        //         console.log(res.data);
-        //     })
-
-        // Build formData object.
-        let formData = new FormData();
-        formData.append('email', 'John');
-
-        fetch("http://localhost:4000/newsletters",
-            {
-                body: formData,
-                method: "post",
-                headers: {
-                    'Content-Type': 'application/x-www-form-urlencoded'
-                },
-            });
+    async function onSubmit(data) {
+        console.log("data", data);
+        axios({
+            method: 'post',
+            url: 'http://localhost:4000/newsletters',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded'
+            },
+            data: `email=${data.email}`
+        }).then(res => {
+            console.log(res);
+            console.log(res.data);
+        })
     }
-    onSubmit()
 
+    console.log(errors);
     return (
         <StyledEmailSection>
             <h3>want the latest night club news</h3>
             <h4>Subscribe to our newsletter and never miss a <span>Event</span></h4>
-            <form onSubmit={handleSubmit()}>
-                <input placeholder="Enter You Email" type="email" name="email" ref={register({ pattern: /^[A-Za-z]+$/i })} />
-                {errors.email && <span>This field is required</span>}
+            <form onSubmit={handleSubmit(onSubmit)}>
+                <input
+                    type="email"
+                    placeholder="Enter You Email"
+                    name="email"
+                    ref={register({
+                        required: "Required",
+                        pattern: {
+                            value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+                            message: "invalid email address"
+                        }
+                    })}
+                />
+                {errors.email && errors.email.message}
                 <button type="submit">subscribe </button>
             </form>
         </StyledEmailSection>

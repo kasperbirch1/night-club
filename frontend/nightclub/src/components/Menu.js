@@ -25,6 +25,10 @@ const StyledNav = styled.nav`
     display: flex;
     justify-content: space-between;
     align-items: center;
+  
+    img {
+        width: 200px;
+    }
     ul {
         display: none;
         @media ${breakpoints.sm} {

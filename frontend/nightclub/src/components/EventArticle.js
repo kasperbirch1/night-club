@@ -57,7 +57,7 @@ export const EventArticle = ({ name, description, time, date, location, asset })
         };
         fetchData();
 
-    }, []);
+    }, [asset]);
     return (
         <StyledEventArticle style={{ backgroundImage: `url(${Img.url})` }}>
             <div className="top">
