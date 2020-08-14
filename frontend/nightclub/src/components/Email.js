@@ -51,23 +51,37 @@ const StyledEmailSection = styled.section`
 
 const Email = () => {
     const { register, handleSubmit, errors } = useForm();
-    const onSubmit = data => console.log(data);
+    var formData = new FormData();
+    formData.append("email", "kasper");
 
-    // function onSubmit(event) {
-    // event.preventDefault();
-    // axios({
-    //     method: 'post',
-    //     url: 'http://localhost:4000/newsletters',
-    //     headers: {
-    //         'Content-Type': 'application/x-www-form-urlencoded'
-    //     },
-    //     data: { "email": "kasper" }
-    // }).then(res => {
-    //     console.log(res);
-    //     console.log(res.data);
-    // })
-    // }
-    // onSubmit()
+    function onSubmit(event) {
+        // event.preventDefault();
+        //     axios({
+        //         method: 'post',
+        //         url: 'http://localhost:4000/newsletters',
+        //         headers: {
+        //             'Content-Type': 'application/x-www-form-urlencoded'
+        //         },
+        //         data: formData
+        //     }).then(res => {
+        //         console.log(res);
+        //         console.log(res.data);
+        //     })
+
+        // Build formData object.
+        let formData = new FormData();
+        formData.append('email', 'John');
+
+        fetch("http://localhost:4000/newsletters",
+            {
+                body: formData,
+                method: "post",
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+            });
+    }
+    onSubmit()
 
     return (
         <StyledEmailSection>
