@@ -54,7 +54,6 @@ const Email = () => {
     const { register, handleSubmit, errors } = useForm();
 
     async function onSubmit(data) {
-        console.log("data", data);
         axios({
             method: 'post',
             url: 'http://localhost:4000/newsletters',
@@ -68,7 +67,6 @@ const Email = () => {
         })
     }
 
-    console.log(errors);
     return (
         <StyledEmailSection>
             <h3>want the latest night club news</h3>
